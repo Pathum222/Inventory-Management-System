@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use App\Item;
+use App\Models\Item;
 
 
 class ItemController extends Controller
@@ -21,9 +21,9 @@ class ItemController extends Controller
         return view('additem');
 
     }
-    public function vieweditItems(){
-        
-        return view('editItem');
+    public function vieweditItems($item_id){
+        $item= Item::find($item_id);
+        return view('edititem1')->with('item', $item);
 
     }//
     public function addItem(Request $request){
@@ -48,7 +48,7 @@ class ItemController extends Controller
 
     }
     public function editItem(Request $request,$item_id){
-        $items= Item::find($item_id);
+        $item= Item::find($item_id);
 
        
         $request->validate([
@@ -67,10 +67,9 @@ class ItemController extends Controller
 
 
     }
-    public function deleteMeeting($meetingID){
-        $meeting = Meeting::find($meetingID);
-        app('App\Http\Controllers\UserManagment\NotificationController')->sendMeetingCancelNotification($meeting);
-        $meeting->delete();
+    public function deleteItem($item_id){
+        $item = Item::find($item_id);
+        $item->delete();
         return redirect()->back();
     }
 }

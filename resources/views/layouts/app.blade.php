@@ -81,16 +81,7 @@
 
         <main class="py-4">           
             @yield('content')
-            </br>
-            <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-4">
-            <div class="list-group">
-                <a href="{{ route('viewItem') }}" class="list-group-item list-group-item-action active">Items</a>
-                <a href="{{ route('viewCustomer') }}" class="list-group-item list-group-item-action">Customers</a>
-            </div>
-            </div>                
-            </div>
+           
         </main>
     </div>
 </body>

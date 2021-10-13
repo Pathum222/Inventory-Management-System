@@ -1,7 +1,6 @@
 
-@if (Route::has('login'))
-@auth('')
-!doctype html>
+
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -53,11 +52,11 @@
                         <td> {{$item->item_name}}</td>
                         <td>{{$item->amount}}</td>
                         <td>
-                            <a href="{{route('vieweditItem')}}"><button type="button"
+                            <a href="{{route('vieweditItem',$item->item_id)}}"><button type="button"
                                     class="btn btn-primary">Edit</button></a>
                         </td>
                         <td>
-                            <a href="{{route()}}"><button type="button"
+                            <a href="{{route('delete_item',$item->item_id)}}"><button type="button"
                                     class="btn btn-danger">Remove</button></a>
                         </td>
                     </tr>
