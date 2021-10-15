@@ -1,1 +1,1 @@
-# pharmacy-app
+# Inventory Management System
